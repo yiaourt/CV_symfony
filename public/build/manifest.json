@@ -1,0 +1,8 @@
+{
+  "build/basic.css": "/build/basic.css",
+  "build/basic.js": "/build/basic.js",
+  "build/home.css": "/build/home.css",
+  "build/home.js": "/build/home.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors~home.js": "/build/vendors~home.js"
+}

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset='UTF-8'>
+
+        <title>{% block title %}Titre de la page de base{% endblock %}</title>
+
+        {# Les CDN ! important ! ----------------------------------------------------- #}
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+        <!-- Jquery --><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <!-- SweetAlert2 </!-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.4/sweetalert2.min.js" integrity="sha512-EPNolNCOFmcnNzDqK7E4Wdwo9KBt/HCP/J8bmK6uSik6YsoLU1b8XGbg5hpw2BY+IilYjf1ce5t7rCuHB60mzA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.4/sweetalert2.all.min.js" integrity="sha512-YzA/n4ANNJHPUJdz4q10WY5DS0yLxmtSaAK0Oc1jW3kXdBKtuUS5xlJ96Q5uHJA87ku20eTn8MKYCPHHfJfi9w==" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.4/sweetalert2.min.css" integrity="sha512-zEmgzrofH7rifnTAgSqWXGWF8rux/+gbtEQ1OJYYW57J1eEQDjppSv7oByOdvSJfo0H39LxmCyQTLOYFOa8wig==" crossorigin="anonymous" />
+
+        <!-- Popper.js --><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap </!-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+        <!-- Bootstrap material </!-->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+        <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+        
+        <!-- icons Awesome (don't forget Material Icons) -->
+        <script src="https://kit.fontawesome.com/35da9d16c3.js" crossorigin="anonymous"></script>
+
+        <!-- animate.css --><link 
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+          />
+        <!-- (...) -->
+        {# --------------------------------------------------------------------------- #}
+
+        {% block stylesheets %}
+
+            {{ encore_entry_link_tags('basic') }}
+
+        {% endblock %}
+
+    </head>
+
+    <body>
+
+        
+
+        {# Ci dessous, la barre de navigation Bootstrap Material ! #}
+        <header id="particles-js-0">
+            <nav id="navigation" 
+                class="navbar fixed-top navbar-light bg-light animate__animated animate__faster">
+                
+                <ul class="navbar-nav float-right">
+                    <li class="nav-item">
+                        <a id="super_nav" class="nav-link" href="javascript:void(0)"><i class="material-icons align-middle mr-2">question_answer</i>
+                        <span class="d-inline">Me contacter</span></a>
+                    </li>
+                </ul>
+
+                {# Mon image de profil #}
+                <img id="img_profil" src="/img/profil.jpg" alt="image de profil">
+
+            </nav>
+        </header>
+
+        {# Logo du haut après le header #}
+        <a id="title" class="font-coolvetica bg-transparent top-center animate__animated animate__faster" href="/">Bois Loïc</a>
+
+        {# son titre de localisation #}
+        <a href="/#api-map" id="title_location" class="top-center-nomg animate__animated animate__fast">
+            <i class="material-icons align-middle mr-2">location_on</i>
+            <span>à St Just d'Ardèche</span>
+        </a>
+
+        {# Bloc invisible gérer par le script de la souris au survol en javascript
+            sert à afficher le menu lorsque la souris passe devant #}
+        <div id="hover_tha_menu"></div>
+
+        {# Bloc qui sert à espacer la barre de navigation #}
+        <div class="mt-1"></div>
+
+        {# Ensuite le block body de chaques rendu controller de Symfony #}
+        {% block body %}{% endblock %}
+
+        {# le javascript extend de chaques pages avec vérification du thème actuel #}
+        {% block javascripts %}
+
+            <div id="particles-js-1"></div>
+
+            {# Script de particules avec particles.js #}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A==" crossorigin="anonymous"></script>
+
+            {# Script WebPack Encore #}
+            {{ encore_entry_script_tags('basic') }}
+
+
+        {% endblock %}
+
+    </body>
+
+    <footer>
+        {% block footer %}
+            
+
+
+        {% endblock %}
+
+        <div class="text-white text-center font-coolvetica h5">Hello Footer</div>
+    </footer>
+
+</html>
+
+
